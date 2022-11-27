@@ -18,4 +18,8 @@
     <Folder Include="Controllers\ApiControllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Core.App\Core.App.csproj" />
+  </ItemGroup>
+
 </Project>
