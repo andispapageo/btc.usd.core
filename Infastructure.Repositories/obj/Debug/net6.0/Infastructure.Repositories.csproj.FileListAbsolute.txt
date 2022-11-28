@@ -1,0 +1,5 @@
+C:\Users\User\btc.usd.core\Infastructure.Repositories\obj\Debug\net6.0\Infastructure.Repositories.csproj.AssemblyReference.cache
+C:\Users\User\btc.usd.core\Infastructure.Repositories\obj\Debug\net6.0\Infastructure.Repositories.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\btc.usd.core\Infastructure.Repositories\obj\Debug\net6.0\Infastructure.Repositories.AssemblyInfoInputs.cache
+C:\Users\User\btc.usd.core\Infastructure.Repositories\obj\Debug\net6.0\Infastructure.Repositories.AssemblyInfo.cs
+C:\Users\User\btc.usd.core\Infastructure.Repositories\obj\Debug\net6.0\Infastructure.Repositories.csproj.CoreCompileInputs.cache

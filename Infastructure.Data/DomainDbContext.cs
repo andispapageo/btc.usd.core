@@ -1,12 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Core.App.Entities.BitFinex;
+using Core.App.Entities.BitStamp;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace Infastructure.Data
 {
     public class DomainDbContext : DbContext
     {
-        public DomainDbContext(DbContextOptions<DomainDbContext> options)
-           : base(options)
+        public DbSet<BitStampModel> BitStampModels { get; set; }    
+        public DbSet<BitFinexModel> BitFinexModels { get; set; }    
+        public DomainDbContext(DbContextOptions<DomainDbContext> options) : base(options)
         {
         }
 

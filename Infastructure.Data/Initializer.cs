@@ -1,5 +1,5 @@
 ﻿
-using Core.App.Interfaces;
+using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -1,0 +1,12 @@
+C:\Users\User\btc.usd.core\Core.Mapping\bin\Debug\net6.0\Core.Mapping.deps.json
+C:\Users\User\btc.usd.core\Core.Mapping\bin\Debug\net6.0\Core.Mapping.dll
+C:\Users\User\btc.usd.core\Core.Mapping\bin\Debug\net6.0\Core.Mapping.pdb
+C:\Users\User\btc.usd.core\Core.Mapping\obj\Debug\net6.0\Core.Mapping.csproj.AssemblyReference.cache
+C:\Users\User\btc.usd.core\Core.Mapping\obj\Debug\net6.0\Core.Mapping.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\btc.usd.core\Core.Mapping\obj\Debug\net6.0\Core.Mapping.AssemblyInfoInputs.cache
+C:\Users\User\btc.usd.core\Core.Mapping\obj\Debug\net6.0\Core.Mapping.AssemblyInfo.cs
+C:\Users\User\btc.usd.core\Core.Mapping\obj\Debug\net6.0\Core.Mapping.csproj.CoreCompileInputs.cache
+C:\Users\User\btc.usd.core\Core.Mapping\obj\Debug\net6.0\Core.Mapping.dll
+C:\Users\User\btc.usd.core\Core.Mapping\obj\Debug\net6.0\refint\Core.Mapping.dll
+C:\Users\User\btc.usd.core\Core.Mapping\obj\Debug\net6.0\Core.Mapping.pdb
+C:\Users\User\btc.usd.core\Core.Mapping\obj\Debug\net6.0\ref\Core.Mapping.dll
