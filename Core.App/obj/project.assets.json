@@ -230,6 +230,21 @@
         "runtime": {
           "bin/placeholder/Core.Mapping.dll": {}
         }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Autofac": "6.5.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "7.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
       }
     }
   },
@@ -584,6 +599,11 @@
       "type": "project",
       "path": "../Core.Mapping/Core.Mapping.csproj",
       "msbuildProject": "../Core.Mapping/Core.Mapping.csproj"
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -592,6 +612,7 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.0",
       "Autofac >= 6.5.0",
       "Core.Mapping >= 1.0.0",
+      "Domain >= 1.0.0",
       "Microsoft.AspNetCore.Http.Abstractions >= 2.2.0",
       "Microsoft.Extensions.Configuration.Abstractions >= 7.0.0",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 7.0.0",
@@ -637,6 +658,9 @@
           "projectReferences": {
             "C:\\Users\\User\\btc.usd.core\\Core.Mapping\\Core.Mapping.csproj": {
               "projectPath": "C:\\Users\\User\\btc.usd.core\\Core.Mapping\\Core.Mapping.csproj"
+            },
+            "C:\\Users\\User\\btc.usd.core\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\User\\btc.usd.core\\Domain\\Domain.csproj"
             }
           }
         }

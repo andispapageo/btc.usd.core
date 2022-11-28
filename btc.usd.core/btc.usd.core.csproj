@@ -10,12 +10,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+    <PackageReference Include="Serilog.AspNetCore.Plus" Version="6.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\ApiControllers\" />
+    <ProjectReference Include="..\Core.App\Core.App.csproj" />
+    <ProjectReference Include="..\Core.Interfaces\Core.Interfaces.csproj" />
+    <ProjectReference Include="..\Infastructure.Data\Infastructure.Data.csproj" />
+    <ProjectReference Include="..\Infastructure.Repositories\Infastructure.Repositories.csproj" />
+    <ProjectReference Include="..\Infastructure.Rest\Infastructure.Rest.csproj" />
   </ItemGroup>
 
 </Project>
