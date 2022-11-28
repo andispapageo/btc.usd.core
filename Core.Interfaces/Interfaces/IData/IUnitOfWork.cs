@@ -1,4 +1,4 @@
-﻿namespace Core.Interfaces.Interfaces
+﻿namespace Core.Interfaces.Interfaces.IData
 {
     public interface IUnitOfWork<T> where T : class
     {

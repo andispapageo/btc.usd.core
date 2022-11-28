@@ -1,5 +1,12 @@
+C:\Users\User\btc.usd.core\Core.Interfaces\bin\Debug\net6.0\Core.Interfaces.deps.json
+C:\Users\User\btc.usd.core\Core.Interfaces\bin\Debug\net6.0\Core.Interfaces.dll
+C:\Users\User\btc.usd.core\Core.Interfaces\bin\Debug\net6.0\Core.Interfaces.pdb
 C:\Users\User\btc.usd.core\Core.Interfaces\obj\Debug\net6.0\Core.Interfaces.csproj.AssemblyReference.cache
 C:\Users\User\btc.usd.core\Core.Interfaces\obj\Debug\net6.0\Core.Interfaces.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\User\btc.usd.core\Core.Interfaces\obj\Debug\net6.0\Core.Interfaces.AssemblyInfoInputs.cache
 C:\Users\User\btc.usd.core\Core.Interfaces\obj\Debug\net6.0\Core.Interfaces.AssemblyInfo.cs
 C:\Users\User\btc.usd.core\Core.Interfaces\obj\Debug\net6.0\Core.Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\User\btc.usd.core\Core.Interfaces\obj\Debug\net6.0\Core.Interfaces.dll
+C:\Users\User\btc.usd.core\Core.Interfaces\obj\Debug\net6.0\refint\Core.Interfaces.dll
+C:\Users\User\btc.usd.core\Core.Interfaces\obj\Debug\net6.0\Core.Interfaces.pdb
+C:\Users\User\btc.usd.core\Core.Interfaces\obj\Debug\net6.0\ref\Core.Interfaces.dll

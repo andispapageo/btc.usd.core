@@ -1,6 +1,9 @@
-﻿namespace Domain.Interfaces
+﻿using Autofac;
+
+namespace Domain.Interfaces
 {
-    internal interface IDependencyRegister
+    public interface IDependencyRegister
     {
+        void Register(ContainerBuilder containerBuilder);
     }
 }

@@ -1,4 +1,4 @@
-﻿using Core.Interfaces.Interfaces;
+﻿using Core.Interfaces.Interfaces.IData;
 using Infastructure.Data;
 
 namespace Infastructure.Repositories

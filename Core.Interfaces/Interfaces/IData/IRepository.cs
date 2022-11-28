@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace Core.Interfaces.Interfaces
+namespace Core.Interfaces.Interfaces.IData
 {
     public interface IRepository<T> where T : class
     {

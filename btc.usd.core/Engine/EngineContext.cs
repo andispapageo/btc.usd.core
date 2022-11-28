@@ -26,11 +26,7 @@ namespace Core.App.Engine
         {
             get
             {
-                if (Singleton<IEngine>.Instance == null)
-                {
-                    Create();
-                }
-
+                if (Singleton<IEngine>.Instance == null) Create();
                 return Singleton<IEngine>.Instance;
             }
         }

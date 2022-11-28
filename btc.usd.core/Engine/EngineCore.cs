@@ -5,6 +5,7 @@ using Core.Mapping;
 using Domain.Interfaces;
 using System.Reflection;
 using Infastructure.Rest.Interface;
+using Domain.Configuration;
 
 namespace Core.App.Engine
 {
@@ -34,6 +35,10 @@ namespace Core.App.Engine
 
         private void ConfigureSettings(IServiceCollection services, IConfiguration configuration)
         {
+            services.Configure<GLobalConfig>(opt =>
+           {
+               opt.Sources = configuration.GetSection("Sources")?.AsEnumerable() ?? default;
+           });
         }
 
         public void RegisterDatabases(IServiceCollection services, IConfiguration configuration)
@@ -53,7 +58,16 @@ namespace Core.App.Engine
             var instances = dbRegisters.Select(dbRegisters => Activator.CreateInstance(dbRegisters) as IRestService);
 
             foreach (var dbS in instances.Where(x => x != null))
-                dbS?.AddDbContext(services, configuration.GetConnectionString(dbS.KeyName) ?? string.Empty);
+            { }
+        }
+
+        public void RegisterDependencies(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.RegisterInstance(this).As<IEngine>().SingleInstance();
+            containerBuilder.RegisterInstance(_typeFinder).As<ITypeFinder>().SingleInstance();
+            _typeFinder.FindClassesOfType<IDependencyRegister>()
+                .Select(di => Activator.CreateInstance(di) as IDependencyRegister)
+                .AsParallel().ForAll(di => di.Register(containerBuilder));
         }
 
         private void AddAutoMapper(IServiceCollection services)
@@ -93,19 +107,11 @@ namespace Core.App.Engine
             return sp.GetService(type);
         }
 
-        /// <summary>
-        /// Resolve dependencies
-        /// </summary>
-        /// <typeparam name="T">Type of resolved services</typeparam>
-        /// <returns>Collection of resolved services</returns>
         public virtual IEnumerable<T> ResolveAll<T>()
         {
             return (IEnumerable<T>)GetServiceProvider().GetServices(typeof(T));
         }
 
-        public void RegisterDependencies(ContainerBuilder containerBuilder)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

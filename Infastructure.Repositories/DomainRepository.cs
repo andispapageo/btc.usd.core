@@ -1,4 +1,4 @@
-﻿using Core.Interfaces.Interfaces;
+﻿using Core.Interfaces.Interfaces.IData;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 

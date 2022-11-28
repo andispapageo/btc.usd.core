@@ -3,7 +3,7 @@ using Autofac.Core;
 using Autofac.Core.Registration;
 using Core.App.Entities.BitFinex;
 using Core.App.Entities.BitStamp;
-using Core.Interfaces.Interfaces;
+using Core.Interfaces.Interfaces.IData;
 using Infastructure.Repositories;
 
 namespace Domain.DI
@@ -26,10 +26,10 @@ namespace Domain.DI
             base.Load(builder);
 
             builder.RegisterType<DomainRepository<BitStampModel>>().As<IRepository<BitStampModel>>();
-            builder.RegisterType<DomainUnitOfWork<BitStampModel>>().As<IRepository<BitStampModel>>();
+            builder.RegisterType<DomainUnitOfWork<BitStampModel>>().As<IUnitOfWork<BitStampModel>>();
 
             builder.RegisterType<DomainRepository<BitFinexModel>>().As<IRepository<BitFinexModel>>();
-            builder.RegisterType<DomainUnitOfWork<BitFinexModel>>().As<IRepository<BitFinexModel>>();
+            builder.RegisterType<DomainUnitOfWork<BitFinexModel>>().As<IUnitOfWork<BitFinexModel>>();
 
         }
     }
