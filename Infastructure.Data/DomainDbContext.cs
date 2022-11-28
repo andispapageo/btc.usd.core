@@ -1,14 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infastructure.Data
 {
-    internal class DomainDbContext : DbContext
+    public class DomainDbContext : DbContext
     {
         public DomainDbContext(DbContextOptions<DomainDbContext> options)
            : base(options)

@@ -2,6 +2,7 @@
 using Core.App.Utils;
 using System.Diagnostics;
 using System.Reflection;
+using System.Runtime.Loader;
 using System.Text.RegularExpressions;
 
 namespace Core.App.TypeFinder
@@ -28,17 +29,22 @@ namespace Core.App.TypeFinder
 
         private void AddAssembliesInAppDomain(List<string> addedAssemblyNames, List<Assembly> assemblies)
         {
+
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
-                if (!Matches(assembly.FullName))
-                    continue;
+                if (Matches(assemblyFullName: assembly?.FullName))
+                {
+                    if (addedAssemblyNames.Contains(assembly.FullName))
+                        continue;
 
-                if (addedAssemblyNames.Contains(assembly.FullName))
-                    continue;
-
-                assemblies.Add(assembly);
-                addedAssemblyNames.Add(assembly.FullName);
+                    assemblies.Add(assembly);
+                    addedAssemblyNames.Add(assembly.FullName);
+                }
             }
+            var mainAssembly = Assembly.GetEntryAssembly();
+            AssemblyNames = addedAssemblyNames;
+
+
         }
 
         protected virtual void AddConfiguredAssemblies(List<string> addedAssemblyNames, List<Assembly> assemblies)
@@ -46,9 +52,7 @@ namespace Core.App.TypeFinder
             foreach (var assemblyName in AssemblyNames)
             {
                 var assembly = Assembly.Load(assemblyName);
-                if (addedAssemblyNames.Contains(assembly.FullName))
-                    continue;
-
+                if (addedAssemblyNames.Contains(assembly?.FullName)) continue;
                 assemblies.Add(assembly);
                 addedAssemblyNames.Add(assembly.FullName);
             }
@@ -177,7 +181,7 @@ namespace Core.App.TypeFinder
             {
                 foreach (var a in assemblies)
                 {
-                    Type[] types = null;
+                    Type[]? types = null;
                     try
                     {
                         types = a.GetTypes();
@@ -242,6 +246,7 @@ namespace Core.App.TypeFinder
 
             if (LoadAppDomainAssemblies)
                 AddAssembliesInAppDomain(addedAssemblyNames, assemblies);
+
             AddConfiguredAssemblies(addedAssemblyNames, assemblies);
 
             return assemblies;

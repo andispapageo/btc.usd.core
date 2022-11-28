@@ -475,3 +475,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/Core.Interfaces/obj/Debug/net6.0/Core.Interfaces.csproj.AssemblyReference.cache
+/btc.usd.core/.vs/btc.usd.core/v17/.suo

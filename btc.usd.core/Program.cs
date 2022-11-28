@@ -1,3 +1,4 @@
+using Core.App.Extensions;
 
 
 var builder = WebApplication.CreateBuilder(args);

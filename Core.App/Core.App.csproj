@@ -18,6 +18,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core.Mapping\Core.Mapping.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Infastructure.Data\Infastructure.Data.csproj" />
   </ItemGroup>
 
 </Project>

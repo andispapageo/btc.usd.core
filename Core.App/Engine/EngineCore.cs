@@ -1,15 +1,11 @@
-﻿using Core.App.Interfaces;
+﻿using Autofac;
+using Core.App.Interfaces;
 using Core.App.TypeFinder;
+using Core.Mapping;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using AutoMapper;
-using Core.Mapping;
-using Autofac;
 
 namespace Core.App.Engine
 {
@@ -28,17 +24,19 @@ namespace Core.App.Engine
         {
             _typeFinder = new AppTypeFinder();
             AddAutoMapper(services);
+            RegisterDatabases(services, configuration);
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
         }
 
-        public void RegisterDatabases(IServiceCollection services)
+        public void RegisterDatabases(IServiceCollection services, IConfiguration configuration)
         {
+
             IEnumerable<Type> dbRegisters = _typeFinder?.FindClassesOfType<IDbStartup>() ?? new Type[] { };
             var instances = dbRegisters
                .Select(dbRegisters => Activator.CreateInstance(dbRegisters) as IDbStartup);
 
             foreach (var dbS in instances.Where(x => x != null))
-                dbS.AddDbContext(services, dbS.KeyName);
+                dbS?.AddDbContext(services, configuration.GetConnectionString(dbS.KeyName) ?? string.Empty);
         }
 
         private void AddAutoMapper(IServiceCollection services)
