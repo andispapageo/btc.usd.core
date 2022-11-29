@@ -1,19 +1,18 @@
 ﻿using Autofac;
+using Domain.DI;
 using Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Domain.DI
+namespace btc.usd.core.DI.Base
 {
     internal class ModulesBox : IDependencyRegister
     {
+        public ModulesBox(IConfiguration configuration) => Configuration = configuration;
+        public IConfiguration Configuration { get; }
         public void Register(ContainerBuilder builder)
         {
             builder.RegisterModule(new CommonModule());
             builder.RegisterModule(new RepositoryModel());
+            builder.RegisterModule(new RestModule(Configuration));
         }
     }
 }

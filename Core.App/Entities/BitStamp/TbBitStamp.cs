@@ -1,6 +1,6 @@
 ﻿namespace Core.App.Entities.BitStamp
 {
-    public class BitStampModel
+    public class TbBitStamp
     {
         public long timestamp { get; set; }
         public int open { get; set; }
@@ -15,6 +15,6 @@
         public int open_24 { get; set; }
         public uint percent_change_24 { get; set; }
         public DateTime AuditDate = DateTime.UtcNow;
-        public BitStampModel() { }
+        public TbBitStamp() { }
     }
 }

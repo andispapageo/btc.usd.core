@@ -35,7 +35,7 @@ namespace Core.App.Engine
 
         private void ConfigureSettings(IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<GLobalConfig>(opt =>
+            services.Configure<DomainConfig>(opt =>
            {
                opt.Sources = configuration.GetSection("Sources")?.AsEnumerable() ?? default;
            });
@@ -61,13 +61,11 @@ namespace Core.App.Engine
             { }
         }
 
-        public void RegisterDependencies(ContainerBuilder containerBuilder)
+        public void RegisterDependencies(ContainerBuilder containerBuilder, IConfiguration configuration)
         {
             containerBuilder.RegisterInstance(this).As<IEngine>().SingleInstance();
-            containerBuilder.RegisterInstance(_typeFinder).As<ITypeFinder>().SingleInstance();
             _typeFinder.FindClassesOfType<IDependencyRegister>()
-                .Select(di => Activator.CreateInstance(di) as IDependencyRegister)
-                .AsParallel().ForAll(di => di.Register(containerBuilder));
+                .Select(di => Activator.CreateInstance(di, configuration) as IDependencyRegister).AsParallel().ForAll(di => di.Register(containerBuilder));
         }
 
         private void AddAutoMapper(IServiceCollection services)

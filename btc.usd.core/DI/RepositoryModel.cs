@@ -25,11 +25,11 @@ namespace Domain.DI
         {
             base.Load(builder);
 
-            builder.RegisterType<DomainRepository<BitStampModel>>().As<IRepository<BitStampModel>>();
-            builder.RegisterType<DomainUnitOfWork<BitStampModel>>().As<IUnitOfWork<BitStampModel>>();
+            builder.RegisterType<DomainRepository<TbBitStamp>>().As<IRepository<TbBitStamp>>();
+            builder.RegisterType<DomainUnitOfWork<TbBitStamp>>().As<IUnitOfWork<TbBitStamp>>();
 
-            builder.RegisterType<DomainRepository<BitFinexModel>>().As<IRepository<BitFinexModel>>();
-            builder.RegisterType<DomainUnitOfWork<BitFinexModel>>().As<IUnitOfWork<BitFinexModel>>();
+            builder.RegisterType<DomainRepository<TbBitFinex>>().As<IRepository<TbBitFinex>>();
+            builder.RegisterType<DomainUnitOfWork<TbBitFinex>>().As<IUnitOfWork<TbBitFinex>>();
 
         }
     }
