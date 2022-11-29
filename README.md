@@ -2,7 +2,7 @@
 
 BTC-USE WEB API Application.
 
-An application which fetching BTC USD Symbole prices from two specific URL Endpoints.
+An application which fetching BTC/USD symbol prices from two specific URL Endpoints.
 
 An .NET 6 Framework WEB API Application within Dockerized Image [Linux].
 Implemented with Swagger with GET API Endpoints.The app illustrates  clean architecture, unit of work,  design patterns in an isolaition of N-Layers 
