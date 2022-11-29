@@ -1,6 +1,11 @@
 ﻿using Autofac;
 using Autofac.Core;
 using Autofac.Core.Registration;
+using Core.App.ApiModels.BitFinex;
+using Core.App.ApiModels.BitStamp;
+using Core.App.Services;
+using Domain.Entities.BitFinex;
+using Domain.Entities.BitStamp;
 
 namespace Domain.DI
 {
@@ -20,6 +25,11 @@ namespace Domain.DI
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
+            //Adaptors
+            
+            builder.RegisterType<HistoryAdaptor>().AsSelf();
+            builder.RegisterType<BitStampAdaptor<BitStampModel, TbBitStamp>>().AsSelf();
+            builder.RegisterType<BitFinexAdaptor<BitFinexModel, TbBitFinex>>().AsSelf();
         }
     }
 }

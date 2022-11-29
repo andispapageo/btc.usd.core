@@ -24,5 +24,10 @@ namespace Core.App.Services
             var mapped = Mapper.Map<TApim, TEntm>(bitStampModels.FirstOrDefault());
             await UnitOfWorkBitStamp.GetRepository().InsertOrUpdate(mapped);
         }
+
+        public async Task<IEnumerable<TEntm>> GetHistory()
+        {
+            return await Task.Run(() => UnitOfWorkBitStamp.GetRepository().GetCollection().ToList());
+        }
     }
 }

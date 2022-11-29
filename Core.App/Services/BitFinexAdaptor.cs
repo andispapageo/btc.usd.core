@@ -21,8 +21,13 @@ namespace Core.App.Services
         public async Task AddModel(IEnumerable<TApim> bitFinexModels)
         {
             if (!bitFinexModels?.Any() ?? false) return;
-            var mapped = Mapper.Map<TApim, TEntm>(bitFinexModels.FirstOrDefault());
+            var mapped = Mapper.Map<TApim, TEntm>(source: bitFinexModels?.FirstOrDefault());
             await UnitOfWorkBitFinex.GetRepository().InsertOrUpdate(mapped);
+        }
+
+        public async Task<IEnumerable<TEntm>> GetHistory()
+        {
+            return await Task.Run(()=> UnitOfWorkBitFinex.GetRepository().GetCollection().ToList());
         }
     }
 }

@@ -726,7 +726,6 @@
           "AutoMapper": "12.0.0",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
           "Autofac": "6.5.0",
-          "Core.Interfaces": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.EntityFrameworkCore.Relational": "7.0.0",
@@ -741,26 +740,13 @@
           "bin/placeholder/Core.App.dll": {}
         }
       },
-      "Core.Interfaces/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "7.0.0",
-          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Core.Interfaces.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Core.Interfaces.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Autofac": "6.5.0",
           "MediatR": "11.1.0",
+          "Microsoft.EntityFrameworkCore": "7.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
           "Microsoft.Extensions.FileProviders.Abstractions": "7.0.0"
         },
@@ -1732,11 +1718,6 @@
       "type": "project",
       "path": "../Core.App/Core.App.csproj",
       "msbuildProject": "../Core.App/Core.App.csproj"
-    },
-    "Core.Interfaces/1.0.0": {
-      "type": "project",
-      "path": "../Core.Interfaces/Core.Interfaces.csproj",
-      "msbuildProject": "../Core.Interfaces/Core.Interfaces.csproj"
     },
     "Domain/1.0.0": {
       "type": "project",

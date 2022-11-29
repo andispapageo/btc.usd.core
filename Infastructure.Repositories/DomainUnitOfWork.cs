@@ -1,6 +1,6 @@
 ﻿using Core.Interfaces.Interfaces.IData;
 using Domain.Interfaces.IData;
-using Infastructure.Data.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infastructure.Repositories
 {
@@ -15,6 +15,7 @@ namespace Infastructure.Repositories
             Repository = repository;
             DomainDbContext = domainDbContext;
             Repository.DbContext = domainDbContext;
+            Repository.DbSet = ((DbContext)domainDbContext).Set<T>();
         }
 
         public IRepository<T> GetRepository()

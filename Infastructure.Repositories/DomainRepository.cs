@@ -7,8 +7,9 @@ namespace Infastructure.Repositories
 {
     public class DomainRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        DbSet<TEntity> DbSet { get; set; }
+      
         public IDbContext DbContext { get; set; }
+        public DbSet<TEntity> DbSet { get; set ; }
 
         public virtual IEnumerable<TEntity> GetCollection(Expression<Func<TEntity, bool>>? filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null, string includeProperties = "")
         {
@@ -23,6 +24,7 @@ namespace Infastructure.Repositories
 
         public virtual IEnumerable<TEntity> GetQuery(Expression<Func<TEntity, bool>>? filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null, string includeProperties = "")
         {
+          
             IQueryable<TEntity> query = DbSet;
             if (filter != null) query = query.Where(filter);
             foreach (var incProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
@@ -35,13 +37,11 @@ namespace Infastructure.Repositories
         public virtual async Task<TEntity?> GetByID(object id)
         {
             if (DbSet == null) return null;
-
             return await DbSet.FindAsync(id);
         }
 
         public virtual async Task<int> InsertOrUpdate(TEntity entity)
         {
-            if (DbSet == null) DbSet = ((DbContext)DbContext).Set<TEntity>();
             var id = ((dynamic)entity).Id;
             if (id != null && id != default(int))
             {
@@ -62,7 +62,6 @@ namespace Infastructure.Repositories
         public virtual async Task Insert(TEntity entity)
         {
             DbSet.Add(entity);
-            await ((DbContext)DbContext).SaveChangesAsync();
         }
 
         public virtual void Delete(object id)

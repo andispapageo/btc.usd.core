@@ -27,9 +27,7 @@ namespace Domain.DI
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
-            //Adaptors
-            builder.RegisterType<BitStampAdaptor<BitStampModel, TbBitStamp>>().AsSelf();
-            builder.RegisterType<BitFinexAdaptor<BitFinexModel, TbBitFinex>>().AsSelf();
+          
 
             builder.RegisterType<DomainRepository<TbBitStamp>>().As<IRepository<TbBitStamp>>();
             builder.RegisterType<DomainUnitOfWork<TbBitStamp>>().As<IUnitOfWork<TbBitStamp>>();

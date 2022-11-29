@@ -5,16 +5,16 @@ namespace Core.App.ApiModels.BitStamp
     public class BitStampModel : IRestEntity
     {
         public long timestamp { get; set; }
-        public int open { get; set; }
-        public int close { get; set; }
-        public int high { get; set; }
-        public int low { get; set; }
-        public int last { get; set; }
+        public decimal open { get; set; }
+        public decimal close { get; set; }
+        public decimal high { get; set; }
+        public decimal low { get; set; }
+        public decimal last { get; set; }
         public decimal volume { get; set; }
-        public int vwap { get; set; }
-        public int bid { get; set; }
-        public int ask { get; set; }
-        public int open_24 { get; set; }
+        public decimal vwap { get; set; }
+        public decimal bid { get; set; }
+        public decimal ask { get; set; }
+        public decimal open_24 { get; set; }
         public decimal percent_change_24 { get; set; }
         public DateTime AuditDate = DateTime.UtcNow;
     }

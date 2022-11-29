@@ -10,7 +10,6 @@ namespace Core.App.Entities.EntityTypeConfigurations
         {
             builder.HasKey(x => x.Id); 
             builder.Property(x => x.timestamp).HasColumnType("integer").HasColumnName(nameof(TbBitStamp.timestamp)).IsRequired();
-            builder.Property(x => x.open).HasColumnType("money").HasColumnName(nameof(TbBitStamp.open));
             builder.Property(x => x.close).HasColumnType("money").HasColumnName(nameof(TbBitStamp.close));
             builder.Property(x => x.high).HasColumnType("money").HasColumnName(nameof(TbBitStamp.high));
             builder.Property(x => x.low).HasColumnType("money").HasColumnName(nameof(TbBitStamp.low));

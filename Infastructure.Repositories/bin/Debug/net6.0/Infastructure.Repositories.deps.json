@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v6.0": {
       "Infastructure.Repositories/1.0.0": {
         "dependencies": {
-          "Core.Interfaces": "1.0.0",
           "Infastructure.Data": "1.0.0"
         },
         "runtime": {
@@ -469,7 +468,6 @@
           "AutoMapper": "12.0.0",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
           "Autofac": "6.5.0",
-          "Core.Interfaces": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.EntityFrameworkCore.Relational": "7.0.0",
@@ -485,6 +483,7 @@
         "dependencies": {
           "Autofac": "6.5.0",
           "MediatR": "11.1.0",
+          "Microsoft.EntityFrameworkCore": "7.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
           "Microsoft.Extensions.FileProviders.Abstractions": "7.0.0"
         },
