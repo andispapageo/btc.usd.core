@@ -35,7 +35,7 @@ namespace Core.App.Engine
         {
             services.Configure<DomainConfig>(opt =>
            {
-               opt.Sources = configuration.GetSection("Sources")?.AsEnumerable() ?? default;
+               opt.Sources = configuration.GetSection("Sources")?.AsEnumerable();
            });
         }
 

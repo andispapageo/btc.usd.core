@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using Core.App.ApiModels.BitStamp;
+using Domain.Entities.BitStamp;
 
 namespace Core.Mapping
 {
-    internal class BitStampProfileMapping
+    public class BitStampProfileMapping : Profile
     {
+        public BitStampProfileMapping()
+        {
+            CreateMap<BitStampModel, TbBitStamp>()
+               .ForMember(dest => dest.timestamp, opt => opt.MapFrom(src => src.timestamp));
+
+            CreateMap<TbBitStamp, BitStampModel>()
+              .ForMember(dest => dest.timestamp, opt => opt.MapFrom(src => src.timestamp));
+
+        }
     }
 }

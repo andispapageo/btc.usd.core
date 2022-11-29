@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Core.App.ApiModels.BitFinex;
-using Core.App.Entities.BitFinex;
+using Domain.Entities.BitFinex;
 
 namespace Core.Mapping
 {
-    internal class BitFinexProfileMapping : Profile
+    public class BitFinexProfileMapping : Profile
     {
         public BitFinexProfileMapping() {
 

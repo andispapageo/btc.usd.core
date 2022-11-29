@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core.App\Core.App.csproj" />
-    <ProjectReference Include="..\Core.Interfaces\Core.Interfaces.csproj" />
     <ProjectReference Include="..\Infastructure.Data\Infastructure.Data.csproj" />
     <ProjectReference Include="..\Infastructure.Repositories\Infastructure.Repositories.csproj" />
     <ProjectReference Include="..\Infastructure.Rest\Infastructure.Rest.csproj" />

@@ -1,4 +1,4 @@
-﻿namespace Core.App.Entities.BitStamp
+﻿namespace Domain.Entities.BitStamp
 {
     public class TbBitStamp
     {
