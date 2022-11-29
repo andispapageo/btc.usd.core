@@ -28,7 +28,6 @@ namespace Core.App.Engine
             //dbContext Configurations reflection
             RegisterDatabases(services, configuration);
             //restApi Congigurations reflection
-            RegisterRestApis(services, configuration);
             ConfigureSettings(services, configuration);
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
         }
@@ -51,16 +50,7 @@ namespace Core.App.Engine
                 dbS?.AddDbContext(services, configuration.GetConnectionString(dbS.KeyName) ?? string.Empty);
         }
 
-        public void RegisterRestApis(IServiceCollection services, IConfiguration configuration)
-        {
-
-            IEnumerable<Type> dbRegisters = _typeFinder?.FindClassesOfType<IRestService>() ?? new Type[] { };
-            var instances = dbRegisters.Select(dbRegisters => Activator.CreateInstance(dbRegisters) as IRestService);
-
-            foreach (var dbS in instances.Where(x => x != null))
-            { }
-        }
-
+     
         public void RegisterDependencies(ContainerBuilder containerBuilder, IConfiguration configuration)
         {
             containerBuilder.RegisterInstance(this).As<IEngine>().SingleInstance();

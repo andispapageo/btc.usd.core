@@ -27,6 +27,9 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(diBuilder => engine.RegisterDependencies(diBuilder, builder.Configuration));
 
 var app = builder.Build();
+
+
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  btc.usd.core:
+    image: ${DOCKER_REGISTRY-}btcusdcore
+    build:
+      context: .
+      dockerfile: Dockerfile

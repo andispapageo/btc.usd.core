@@ -54,7 +54,7 @@ namespace btc.usd.core.Controllers.ApiControllers
         }
 
 
-        //API Endpoint fetches bitcoin price for specific source {Bitstamp} on demand
+        //API Endpoint fetches bitcoin/usd price for specific source {Bitstamp} on demand
         [HttpGet(nameof(BitstampPrices))]
         [ApiExplorerSettings(GroupName = "v1")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -67,7 +67,7 @@ namespace btc.usd.core.Controllers.ApiControllers
         }
 
 
-        //API Endpoint fetches bitcoin price for specific source {BitFinex} on demand
+        //API Endpoint fetches bitcoin/usd price for specific source {BitFinex} on demand
         [HttpGet(nameof(BitFinexPrices))]
         [ApiExplorerSettings(GroupName = "v1")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -75,11 +75,12 @@ namespace btc.usd.core.Controllers.ApiControllers
         public async Task<IEnumerable<BitFinexModel>> BitFinexPrices(CancellationToken cancellationToken)
         {
             var bitStampModels = await RestServiceBitFinex.GetObjectAsync(cancellationToken);
+
             return bitStampModels;
         }
 
 
-        //API Endpoint fetches bitcoin price for specific source {BitFinex} on demand
+        //API Endpoint fetches bitcoin/usd price for specific source {BitFinex} on demand
         [HttpGet(nameof(BitcoinPricesHistory))]
         [ApiExplorerSettings(GroupName = "v1")]
         [ProducesResponseType(StatusCodes.Status200OK)]

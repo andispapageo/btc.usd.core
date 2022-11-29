@@ -15,7 +15,7 @@ namespace Core.App.ApiModels.BitStamp
         public int bid { get; set; }
         public int ask { get; set; }
         public int open_24 { get; set; }
-        public string percent_change_24 { get; set; }
+        public decimal percent_change_24 { get; set; }
         public DateTime AuditDate = DateTime.UtcNow;
     }
 }

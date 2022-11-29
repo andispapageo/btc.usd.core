@@ -2,15 +2,15 @@
 {
     public class TbBitFinex
     {
-        public string? mid { get; set; }
-        public string? bid { get; set; }
-        public string? ask { get; set; }
-        public string? last_price { get; set; }
-        public string? low { get; set; }
-        public string? high { get; set; }
-        public string? volume { get; set; }
-        public string? timestamp { get; set; }
-        public DateTime AuditDate = DateTime.UtcNow;
+        public int Id { get; set; }
+        public int mid { get; set; }
+        public int? bid { get; set; }
+        public int? ask { get; set; }
+        public int? last_price { get; set; }
+        public int? low { get; set; }
+        public int? high { get; set; }
+        public int? volume { get; set; }
+        public int? timestamp { get; set; }
         public TbBitFinex(){}
     }
 }

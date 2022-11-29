@@ -2,6 +2,7 @@
 {
     public class TbBitStamp
     {
+        public int Id { get; set; }
         public long timestamp { get; set; }
         public int open { get; set; }
         public int close { get; set; }
@@ -13,8 +14,7 @@
         public int bid { get; set; }
         public int ask { get; set; }
         public int open_24 { get; set; }
-        public uint percent_change_24 { get; set; }
-        public DateTime AuditDate = DateTime.UtcNow;
+        public int percent_change_24 { get; set; }
         public TbBitStamp() { }
     }
 }
