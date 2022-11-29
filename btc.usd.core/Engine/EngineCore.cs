@@ -4,7 +4,6 @@ using Domain.TypeFinder;
 using Core.Mapping;
 using Domain.Interfaces;
 using System.Reflection;
-using Infastructure.Rest.Interface;
 using Domain.Configuration;
 
 namespace Core.App.Engine

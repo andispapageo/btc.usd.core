@@ -698,7 +698,6 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
           "Autofac": "6.5.0",
           "Core.Interfaces": "1.0.0",
-          "Core.Mapping": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.EntityFrameworkCore.Relational": "7.0.0",
@@ -725,16 +724,6 @@
         },
         "runtime": {
           "bin/placeholder/Core.Interfaces.dll": {}
-        }
-      },
-      "Core.Mapping/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/Core.Mapping.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Core.Mapping.dll": {}
         }
       },
       "Domain/1.0.0": {
@@ -1688,11 +1677,6 @@
       "type": "project",
       "path": "../Core.Interfaces/Core.Interfaces.csproj",
       "msbuildProject": "../Core.Interfaces/Core.Interfaces.csproj"
-    },
-    "Core.Mapping/1.0.0": {
-      "type": "project",
-      "path": "../Core.Mapping/Core.Mapping.csproj",
-      "msbuildProject": "../Core.Mapping/Core.Mapping.csproj"
     },
     "Domain/1.0.0": {
       "type": "project",
