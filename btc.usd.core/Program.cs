@@ -1,24 +1,35 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Core.App.Extensions;
-
+using Core.App.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers()
+     .ConfigureApiBehaviorOptions(options =>
+     {
+         options.SuppressConsumesConstraintForFormFileParameters = true;
+         options.SuppressInferBindingSourcesForParameters = true;
+         options.SuppressModelStateInvalidFilter = true;
+         options.SuppressMapClientErrors = true;
+         options.ClientErrorMapping[StatusCodes.Status404NotFound].Link = "https://httpstatuses.com/404";
+     });
 
-// Add services to the container.
-
-builder.Services.AddControllers();
 builder.Services.AddControllersWithViews();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+//Swagger as UI
 builder.Services.AddSwaggerGen();
-var engine = builder.Services.ConfigureApplicationServices(builder.Configuration);
 
+//Engine
+IEngine engine = builder.Services.ConfigureApplicationServices(builder.Configuration);
+
+//DI
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
-builder.Host.ConfigureContainer<ContainerBuilder>(builder => engine.RegisterDependencies(builder));
+builder.Host.ConfigureContainer<ContainerBuilder>(diBuilder => engine.RegisterDependencies(diBuilder, builder.Configuration));
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -1,11 +1,6 @@
 ﻿using Autofac;
 using Autofac.Core;
 using Autofac.Core.Registration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.DI
 {
@@ -25,7 +20,6 @@ namespace Domain.DI
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
-
         }
     }
 }

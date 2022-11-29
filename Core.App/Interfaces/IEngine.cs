@@ -10,6 +10,6 @@ namespace Core.App.Interfaces
         T Resolve<T>() where T : class;
         object Resolve(Type type);
         IEnumerable<T> ResolveAll<T>();
-        void RegisterDependencies(ContainerBuilder containerBuilder);
+        void RegisterDependencies(ContainerBuilder containerBuilder, IConfiguration configuration);
     }
 }

@@ -1,9 +1,10 @@
-﻿using Infastructure.Rest.Interface;
-
-namespace Infastructure.Rest.BitStamp
+﻿namespace Infastructure.Rest.BitStamp
 {
-    internal class BitStampRestService<T> :  BaseRestAPI<T> where T : class, IRestService
+    public class BitStampRestService<T> : BaseRestAPI<T> where T : class
     {
         public BitStampRestService(string url) : base(url) { }
+        public override bool FetchAllSymbols() => false;
+        public override IEnumerable<string> Symbols() => new[] { "btcusd" };
+
     }
 }

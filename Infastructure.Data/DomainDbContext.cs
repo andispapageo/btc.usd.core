@@ -7,8 +7,8 @@ namespace Infastructure.Data
 {
     public class DomainDbContext : DbContext
     {
-        public DbSet<BitStampModel> BitStampModels { get; set; }    
-        public DbSet<BitFinexModel> BitFinexModels { get; set; }    
+        public DbSet<TbBitStamp> BitStampModels { get; set; }    
+        public DbSet<TbBitFinex> BitFinexModels { get; set; }    
         public DomainDbContext(DbContextOptions<DomainDbContext> options) : base(options)
         {
         }

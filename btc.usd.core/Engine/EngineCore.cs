@@ -28,14 +28,13 @@ namespace Core.App.Engine
             //dbContext Configurations reflection
             RegisterDatabases(services, configuration);
             //restApi Congigurations reflection
-            RegisterRestApis(services, configuration);
             ConfigureSettings(services, configuration);
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
         }
 
         private void ConfigureSettings(IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<GLobalConfig>(opt =>
+            services.Configure<DomainConfig>(opt =>
            {
                opt.Sources = configuration.GetSection("Sources")?.AsEnumerable() ?? default;
            });
@@ -51,23 +50,12 @@ namespace Core.App.Engine
                 dbS?.AddDbContext(services, configuration.GetConnectionString(dbS.KeyName) ?? string.Empty);
         }
 
-        public void RegisterRestApis(IServiceCollection services, IConfiguration configuration)
-        {
-
-            IEnumerable<Type> dbRegisters = _typeFinder?.FindClassesOfType<IRestService>() ?? new Type[] { };
-            var instances = dbRegisters.Select(dbRegisters => Activator.CreateInstance(dbRegisters) as IRestService);
-
-            foreach (var dbS in instances.Where(x => x != null))
-            { }
-        }
-
-        public void RegisterDependencies(ContainerBuilder containerBuilder)
+     
+        public void RegisterDependencies(ContainerBuilder containerBuilder, IConfiguration configuration)
         {
             containerBuilder.RegisterInstance(this).As<IEngine>().SingleInstance();
-            containerBuilder.RegisterInstance(_typeFinder).As<ITypeFinder>().SingleInstance();
             _typeFinder.FindClassesOfType<IDependencyRegister>()
-                .Select(di => Activator.CreateInstance(di) as IDependencyRegister)
-                .AsParallel().ForAll(di => di.Register(containerBuilder));
+                .Select(di => Activator.CreateInstance(di, configuration) as IDependencyRegister).AsParallel().ForAll(di => di.Register(containerBuilder));
         }
 
         private void AddAutoMapper(IServiceCollection services)

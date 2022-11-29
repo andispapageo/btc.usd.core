@@ -35,6 +35,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "C:\\Users\\User\\btc.usd.core\\Core.Interfaces\\Core.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\User\\btc.usd.core\\Core.Interfaces\\Core.Interfaces.csproj"
+              },
               "C:\\Users\\User\\btc.usd.core\\Core.Mapping\\Core.Mapping.csproj": {
                 "projectPath": "C:\\Users\\User\\btc.usd.core\\Core.Mapping\\Core.Mapping.csproj"
               },
@@ -69,6 +72,10 @@
             "Microsoft.AspNetCore.Http.Abstractions": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
