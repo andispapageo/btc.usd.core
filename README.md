@@ -12,7 +12,11 @@ Seperation of concerns, scalability and integrity. As along for unit testing.
 The application can be run from the core itself or Docker runtime instance.
 
 A Rest API Service with (restSharp dll) had used to send API requests to the end servers in order to store the results in an inapp SQLITE db.
-There is an already pushed Database within the App. For integriy the deletion of the database will ensure the recreation on runtime.
+There is an already pushed Database within the App. 
+
+For integrity the deletion of the database schema files will ensure the recreation on runtime from EF as to migrate. 
+(database.sqlite, database.sqlite-shm,database.sqlite-wal).
+
 
 Main Libraries used 
 EF Core,
