@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Events\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Entities\BitStamp\TbBitStamp.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>

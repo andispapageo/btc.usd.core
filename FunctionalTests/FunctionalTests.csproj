@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="xunit.assert" Version="2.4.2" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.App\Core.App.csproj" />
+    <ProjectReference Include="..\Infastructure.Rest\Infastructure.Rest.csproj" />
+  </ItemGroup>
+
 </Project>
