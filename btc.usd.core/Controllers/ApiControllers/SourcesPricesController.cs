@@ -1,10 +1,11 @@
 ﻿using Core.App.ApiModels.BitFinex;
 using Core.App.ApiModels.BitStamp;
-using Core.App.Entities.BitFinex;
-using Core.App.Entities.BitStamp;
-using Core.Interfaces.Interfaces.IApi;
+using Core.App.DTO;
+using Core.App.Services;
 using Core.Interfaces.Interfaces.IData;
 using Domain.Configuration;
+using Domain.Entities.BitFinex;
+using Domain.Entities.BitStamp;
 using Infastructure.Rest.BitFinex;
 using Infastructure.Rest.BitStamp;
 using Microsoft.AspNetCore.Mvc;
@@ -20,23 +21,26 @@ namespace btc.usd.core.Controllers.ApiControllers
 
         private readonly ILogger<SourcesPricesController> Logger;
         public IOptions<DomainConfig> Options { get; }
-        public IUnitOfWork<TbBitStamp> UnitOfWorkBitStamp { get; }
-        public IUnitOfWork<TbBitFinex> UnitOfWorkBitFinex { get; }
+        public HistoryAdaptor HistoryAdaptor { get; }
+        public BitStampAdaptor<BitStampModel, TbBitStamp> BitStampAdaptor { get; }
+        public BitFinexAdaptor<BitFinexModel, TbBitFinex> BitFinexAdaptor { get; }
         public BitStampRestService<BitStampModel> RestServiceBitStamp { get; }
         public BitFixexRestService<BitFinexModel> RestServiceBitFinex { get; }
 
         public SourcesPricesController(
             ILogger<SourcesPricesController> logger,
             IOptions<DomainConfig> options,
-            IUnitOfWork<TbBitStamp> unitOfWorkBitStamp,
-            IUnitOfWork<TbBitFinex> unitOfWorkBitFinex,
+            HistoryAdaptor historyAdaptor,
+            BitStampAdaptor<BitStampModel, TbBitStamp> bitStampMainService,
+            BitFinexAdaptor<BitFinexModel, TbBitFinex> bitFinexAdaptor,
             BitStampRestService<BitStampModel> restServiceBitStamp,
             BitFixexRestService<BitFinexModel> restServiceBitFinex)
         {
             Logger = logger;
             Options = options;
-            UnitOfWorkBitStamp = unitOfWorkBitStamp;
-            UnitOfWorkBitFinex = unitOfWorkBitFinex;
+            HistoryAdaptor = historyAdaptor;
+            BitStampAdaptor = bitStampMainService;
+            BitFinexAdaptor = bitFinexAdaptor;
             RestServiceBitStamp = restServiceBitStamp;
             RestServiceBitFinex = restServiceBitFinex;
         }
@@ -60,9 +64,10 @@ namespace btc.usd.core.Controllers.ApiControllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [Produces(MediaTypeNames.Application.Json)]
-        public async  Task<IEnumerable<BitStampModel>> BitstampPrices(CancellationToken cancellationToken)
+        public async Task<IEnumerable<BitStampModel>> BitstampPrices(CancellationToken cancellationToken)
         {
             var bitStampModels = await RestServiceBitStamp.GetObjectAsync(cancellationToken);
+            await BitStampAdaptor.AddModel(bitStampModels);
             return bitStampModels;
         }
 
@@ -74,9 +79,10 @@ namespace btc.usd.core.Controllers.ApiControllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IEnumerable<BitFinexModel>> BitFinexPrices(CancellationToken cancellationToken)
         {
-            var bitStampModels = await RestServiceBitFinex.GetObjectAsync(cancellationToken);
-
-            return bitStampModels;
+            var bitFinex = await RestServiceBitFinex.GetObjectAsync(cancellationToken);
+            await BitFinexAdaptor.AddModel(bitFinex);
+            
+            return bitFinex;
         }
 
 
@@ -85,9 +91,12 @@ namespace btc.usd.core.Controllers.ApiControllers
         [ApiExplorerSettings(GroupName = "v1")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IEnumerable<TbBitFinex> BitcoinPricesHistory(CancellationToken cancellationToken)
+        public async Task<IEnumerable<HistoryPrices>> BitcoinPricesHistory(CancellationToken cancellationToken)
         {
-            return default;
+            var allBitStamp = await BitStampAdaptor.GetHistory();
+            var allBitFinex = await BitFinexAdaptor.GetHistory();
+            return await HistoryAdaptor.Merge(allBitStamp, allBitFinex, cancellationToken);
+
         }
     }
 }

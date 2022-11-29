@@ -1,19 +1,21 @@
 ﻿using Core.Interfaces.Interfaces.IData;
-using Infastructure.Data;
+using Domain.Interfaces.IData;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infastructure.Repositories
 {
     public class DomainUnitOfWork<T> : IUnitOfWork<T>, IDisposable where T : class
     {
-        readonly DomainDbContext DomainDbContext;
+        readonly IDbContext DomainDbContext;
         private bool disposedValue;
 
         IRepository<T>? Repository { get; set; }
-        public DomainUnitOfWork(DomainDbContext domainDbContext, IRepository<T> repository)
+        public DomainUnitOfWork(IDbContext domainDbContext, IRepository<T> repository)
         {
             Repository = repository;
             DomainDbContext = domainDbContext;
-            repository.DbContext = domainDbContext;
+            Repository.DbContext = domainDbContext;
+            Repository.DbSet = ((DbContext)domainDbContext).Set<T>();
         }
 
         public IRepository<T> GetRepository()

@@ -1,9 +1,12 @@
 ﻿using Autofac;
 using Autofac.Core;
 using Autofac.Core.Registration;
-using Core.App.Entities.BitFinex;
-using Core.App.Entities.BitStamp;
+using Core.App.ApiModels.BitFinex;
+using Core.App.ApiModels.BitStamp;
+using Core.App.Services;
 using Core.Interfaces.Interfaces.IData;
+using Domain.Entities.BitFinex;
+using Domain.Entities.BitStamp;
 using Infastructure.Repositories;
 
 namespace Domain.DI
@@ -24,13 +27,13 @@ namespace Domain.DI
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
+          
 
             builder.RegisterType<DomainRepository<TbBitStamp>>().As<IRepository<TbBitStamp>>();
             builder.RegisterType<DomainUnitOfWork<TbBitStamp>>().As<IUnitOfWork<TbBitStamp>>();
 
             builder.RegisterType<DomainRepository<TbBitFinex>>().As<IRepository<TbBitFinex>>();
             builder.RegisterType<DomainUnitOfWork<TbBitFinex>>().As<IUnitOfWork<TbBitFinex>>();
-
         }
     }
 }

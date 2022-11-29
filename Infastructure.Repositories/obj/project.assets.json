@@ -47,6 +47,35 @@
           "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "MediatR/11.1.0": {
+        "type": "package",
+        "dependencies": {
+          "MediatR.Contracts": "1.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.1/MediatR.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/MediatR.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MediatR.Contracts/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MediatR.Contracts.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/MediatR.Contracts.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -639,8 +668,6 @@
           "AutoMapper": "12.0.0",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
           "Autofac": "6.5.0",
-          "Core.Interfaces": "1.0.0",
-          "Core.Mapping": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.EntityFrameworkCore.Relational": "7.0.0",
@@ -655,35 +682,13 @@
           "bin/placeholder/Core.App.dll": {}
         }
       },
-      "Core.Interfaces/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "7.0.0",
-          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Core.Interfaces.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Core.Interfaces.dll": {}
-        }
-      },
-      "Core.Mapping/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/Core.Mapping.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Core.Mapping.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Autofac": "6.5.0",
+          "MediatR": "11.1.0",
+          "Microsoft.EntityFrameworkCore": "7.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
           "Microsoft.Extensions.FileProviders.Abstractions": "7.0.0"
         },
@@ -760,6 +765,36 @@
         "automapper.extensions.microsoft.dependencyinjection.nuspec",
         "icon.png",
         "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
+    "MediatR/11.1.0": {
+      "sha512": "YIbtrLOyeCuIv8vIuHL/mMdls5xmgS36pIOJDxKZuu55nxA2MI2Z+E/Uk0z+F/LE11AGmpjplOM0NZ91m5LQBA==",
+      "type": "package",
+      "path": "mediatr/11.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gradient_128x128.png",
+        "lib/netstandard2.1/MediatR.dll",
+        "lib/netstandard2.1/MediatR.xml",
+        "mediatr.11.1.0.nupkg.sha512",
+        "mediatr.nuspec"
+      ]
+    },
+    "MediatR.Contracts/1.0.1": {
+      "sha512": "NsRvOxthhkYml4DcBMyJsmym8C4MchioH7wxKVPEg7plFj9Euh/i4IcmZ3Gvgx6+K8obeuhPeJdoBl56wnuo3A==",
+      "type": "package",
+      "path": "mediatr.contracts/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gradient_128x128.png",
+        "lib/net461/MediatR.Contracts.dll",
+        "lib/net461/MediatR.Contracts.xml",
+        "lib/netstandard2.0/MediatR.Contracts.dll",
+        "lib/netstandard2.0/MediatR.Contracts.xml",
+        "mediatr.contracts.1.0.1.nupkg.sha512",
+        "mediatr.contracts.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
@@ -1574,16 +1609,6 @@
       "path": "../Core.App/Core.App.csproj",
       "msbuildProject": "../Core.App/Core.App.csproj"
     },
-    "Core.Interfaces/1.0.0": {
-      "type": "project",
-      "path": "../Core.Interfaces/Core.Interfaces.csproj",
-      "msbuildProject": "../Core.Interfaces/Core.Interfaces.csproj"
-    },
-    "Core.Mapping/1.0.0": {
-      "type": "project",
-      "path": "../Core.Mapping/Core.Mapping.csproj",
-      "msbuildProject": "../Core.Mapping/Core.Mapping.csproj"
-    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../Domain/Domain.csproj",
@@ -1597,7 +1622,6 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Core.Interfaces >= 1.0.0",
       "Infastructure.Data >= 1.0.0"
     ]
   },
@@ -1638,9 +1662,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\User\\btc.usd.core\\Core.Interfaces\\Core.Interfaces.csproj": {
-              "projectPath": "C:\\Users\\User\\btc.usd.core\\Core.Interfaces\\Core.Interfaces.csproj"
-            },
             "C:\\Users\\User\\btc.usd.core\\Infastructure.Data\\Infastructure.Data.csproj": {
               "projectPath": "C:\\Users\\User\\btc.usd.core\\Infastructure.Data\\Infastructure.Data.csproj"
             }
