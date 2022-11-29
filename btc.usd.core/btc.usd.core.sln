@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infastructure.Data", "..\In
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.App", "..\Core.App\Core.App.csproj", "{875B8090-E461-4867-B4CC-FC1D90A9E35F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DB6406A7-0F5A-4EEA-8032-42653030B890}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{82FB507D-79F2-4E65-8677-F845681B69CE}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig

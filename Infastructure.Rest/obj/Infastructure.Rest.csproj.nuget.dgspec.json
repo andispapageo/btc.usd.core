@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\btc.usd.core\\Infastructure.Rest\\Infastructure.Rest.csproj": {}
+    "C:\\Users\\User\\source\\repos\\btc.usd.core\\Infastructure.Rest\\Infastructure.Rest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\btc.usd.core\\Infastructure.Rest\\Infastructure.Rest.csproj": {
+    "C:\\Users\\User\\source\\repos\\btc.usd.core\\Infastructure.Rest\\Infastructure.Rest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\btc.usd.core\\Infastructure.Rest\\Infastructure.Rest.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\btc.usd.core\\Infastructure.Rest\\Infastructure.Rest.csproj",
         "projectName": "Infastructure.Rest",
-        "projectPath": "C:\\Users\\User\\btc.usd.core\\Infastructure.Rest\\Infastructure.Rest.csproj",
+        "projectPath": "C:\\Users\\User\\source\\repos\\btc.usd.core\\Infastructure.Rest\\Infastructure.Rest.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\btc.usd.core\\Infastructure.Rest\\obj\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\btc.usd.core\\Infastructure.Rest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

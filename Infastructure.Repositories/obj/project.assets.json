@@ -1634,11 +1634,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\btc.usd.core\\Infastructure.Repositories\\Infastructure.Repositories.csproj",
+      "projectUniqueName": "C:\\Users\\User\\source\\repos\\btc.usd.core\\Infastructure.Repositories\\Infastructure.Repositories.csproj",
       "projectName": "Infastructure.Repositories",
-      "projectPath": "C:\\Users\\User\\btc.usd.core\\Infastructure.Repositories\\Infastructure.Repositories.csproj",
+      "projectPath": "C:\\Users\\User\\source\\repos\\btc.usd.core\\Infastructure.Repositories\\Infastructure.Repositories.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\btc.usd.core\\Infastructure.Repositories\\obj\\",
+      "outputPath": "C:\\Users\\User\\source\\repos\\btc.usd.core\\Infastructure.Repositories\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -1662,8 +1662,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\User\\btc.usd.core\\Infastructure.Data\\Infastructure.Data.csproj": {
-              "projectPath": "C:\\Users\\User\\btc.usd.core\\Infastructure.Data\\Infastructure.Data.csproj"
+            "C:\\Users\\User\\source\\repos\\btc.usd.core\\Infastructure.Data\\Infastructure.Data.csproj": {
+              "projectPath": "C:\\Users\\User\\source\\repos\\btc.usd.core\\Infastructure.Data\\Infastructure.Data.csproj"
             }
           }
         }
